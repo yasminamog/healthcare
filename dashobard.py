@@ -144,7 +144,7 @@ with tabs[2]:
     # Define the selected countries
     selected_countries = ["Spain", "Croatia", "Japan", "Austria", "Germany", "France", "United States", "Switzerland"]
     
-    # Filter the data for the selected countries
+        # Filter the data for the selected countries
     filtered_data1 = data1[data1['Entity'].isin(selected_countries)]
 
     # Define the range of years
@@ -158,29 +158,19 @@ with tabs[2]:
     # Get the selected year range from the slider
     selected_years1 = st.slider("Select Year Range", min_value=int(min_year1), max_value=int(max_year1), value=(int(min_year1), int(max_year1)))
 
-
     # Filter the data based on the selected year range
     filtered_data1_years = filtered_data1[(filtered_data1["Year"] >= selected_years1[0]) & (filtered_data1["Year"] <= selected_years1[1])]
 
-    # Display the filtered data
-    st.write("Filtered Data:")
-    st.dataframe(filtered_data1_years)
-
-  
     # Plot the line graph for sales of cigarettes
     fig1 = px.line(filtered_data1_years, x="Year", y="Sales of cigarettes per adult per day (International Smoking Statistics (2017)) ", color="Entity")
-    
+
     # Update the title and y-axis label
     fig1.update_layout(title="Sales of Cigarettes Per Adult Per Day, {} to {}".format(selected_years1[0], selected_years1[1]),
-                       yaxis_title="Sales of Cigarettes",plot_bgcolor='rgba(0,0,0,0)',
-                       paper_bgcolor='rgba(0,0,0,0)'
-                   )
+                       yaxis_title="Sales of Cigarettes", plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
 
-
-    
     # Set color mapping
     colors1 = {"United States": "red", "Spain": "gray", "Croatia": "gray", "Japan": "gray", "Austria": "gray", "Germany": "gray", "France": "gray", "Switzerland": "gray"}
-    
+
     # Apply color mapping to lines
     for trace in fig1.data:
         entity = trace.name
