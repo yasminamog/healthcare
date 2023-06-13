@@ -248,7 +248,8 @@ with tabs[2]:
     min_year3 = filtered_data3["Year"].min()
     max_year3 = filtered_data3["Year"].max()
     
-    selected_years3 = st.slider("Select Year Range", min_value=int(min_year3), max_value=int(max_year3), value=(int(min_year3), int(max_year3)))
+    selected_years3 = st.slider("Select Year Range", min_value=int(min_year3), max_value=int(max_year3), value=(int(min_year3), int(max_year3)), key="slider3")
+
 
     # Filter the data based on the selected year range
     filtered_data3_years = filtered_data3[(filtered_data3["Year"] >= selected_years3[0]) & (filtered_data3["Year"] <= selected_years3[1])]
