@@ -166,14 +166,18 @@ with tabs[2]:
     st.write("Filtered Data:")
     st.dataframe(filtered_data1_years)
 
-    # Plot the line graph for sales of cigarettes
-    fig1 = px.line(filtered_data1_years, x="Year", y="Sales of cigarettes per adult per day (International Smoking Statistics (2017)) ", color="Entity")
-    
-    # Update the title and y-axis label
+   # Plot the line graph for sales of cigarettes
+    fig1 = go.Figure()
+
+    for entity in selected_countries:
+        entity_data = filtered_data1_years[filtered_data1_years["Entity"] == entity]
+        fig1.add_trace(go.Scatter(x=entity_data["Year"], y=entity_data["Sales of cigarettes per adult per day (International Smoking Statistics (2017)) "],
+                              mode="lines", name=entity, line=dict(color=colors1[entity])))
+
+# Update the layout
     fig1.update_layout(title="Sales of Cigarettes Per Adult Per Day, {} to {}".format(selected_years1[0], selected_years1[1]),
-                       yaxis_title="Sales of Cigarettes",plot_bgcolor='rgba(0,0,0,0)',
-                       paper_bgcolor='rgba(0,0,0,0)'
-                   )
+                   yaxis_title="Sales of Cigarettes", plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+
     
     # Set color mapping
     colors1 = {"United States": "red", "Spain": "gray", "Croatia": "gray", "Japan": "gray", "Austria": "gray", "Germany": "gray", "France": "gray", "Switzerland": "gray"}
