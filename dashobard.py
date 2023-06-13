@@ -172,7 +172,8 @@ with tabs[2]:
     for entity in selected_countries:
         entity_data = filtered_data1_years[filtered_data1_years["Entity"] == entity]
         fig1.add_trace(go.Scatter(x=entity_data["Year"], y=entity_data["Sales of cigarettes per adult per day (International Smoking Statistics (2017)) "],
-                                  mode="lines", name=entity, line=dict(color=colors1[entity])))
+                                 mode="lines", name=entity, line=dict(color=colors1[entity])))
+
 
 # Update the layout
     fig1.update_layout(title="Sales of Cigarettes Per Adult Per Day, {} to {}".format(selected_years1[0], selected_years1[1]),
