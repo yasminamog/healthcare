@@ -77,7 +77,7 @@ with tabs[1]:
         filtered_data_usd = filtered_data_usd[filtered_data_usd['LOCATION'] == country_select1]
     
     # Plot the line graph for health expenditure
-      fig1 = px.line(filtered_data_usd, x="TIME", y="Value", color="LOCATION")
+      fig1 = n.line(filtered_data_usd, x="TIME", y="Value", color="LOCATION")
     
     # Define color for the US line and other countries
       for trace in fig1.data:
