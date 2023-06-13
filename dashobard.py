@@ -175,10 +175,9 @@ with tabs[2]:
                                   mode="lines", name=entity, line=dict(color=colors1[entity]))
 
 
-
-# Update the layout
     fig1.update_layout(title="Sales of Cigarettes Per Adult Per Day, {} to {}".format(selected_years1[0], selected_years1[1]),
                    yaxis_title="Sales of Cigarettes", plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)')
+
 
     
     # Set color mapping
