@@ -194,7 +194,7 @@ with tabs[2]:
     max_year2 = filtered_data2["Year"].max()
     
     # Get the selected year range from the slider
-   selected_years2 = st.slider("Select Year Range", min_value=int(min_year2), max_value=int(max_year2), value=(int(min_year2), int(max_year2)))
+    selected_years2 = st.slider("Select Year Range", min_value=int(min_year2), max_value=int(max_year2), value=(int(min_year2), int(max_year2)))
 
     
     # Filter the data based on the selected year range
