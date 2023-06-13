@@ -366,7 +366,8 @@ with tabs[2]:
     filtered_data_road = data_road[data_road['Entity'].isin(selected_countries)]
     min_year_road = filtered_data_road['Year'].min()
     max_year_road = filtered_data_road['Year'].max()
-    selected_years_road = st.slider("Select Year Range for Road Injuries", key="road_injuries_slider1", min_value=min_year_road, max_value=max_year_road, value=(min_year_road, max_year_road))
+    selected_years_road = st.slider("Select Year Range for Road Injuries", key="road_injuries_slider1", min_value=int(min_year_road), max_value=int(max_year_road), value=(int(min_year_road), int(max_year_road)))
+
     filtered_data_years_road = filtered_data_road[(filtered_data_road['Year'] >= selected_years_road[0]) & (filtered_data_road['Year'] <= selected_years_road[1])]
     fig_road = px.area(filtered_data_years_road, x='Year', y='Deaths - Road injuries - Sex: Both - Age: Age-standardized (Rate)', color='Entity')
     colors_road = {"United States": "red", "Spain": "gray", "Japan": "gray", "Austria": "gray", "Germany": "gray", "France": "gray", "Switzerland": "gray"}
