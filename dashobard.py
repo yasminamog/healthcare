@@ -43,7 +43,7 @@ In this dashboard, we aim to investigate the discrepancy between high healthcare
 """, unsafe_allow_html=True)
 # Load and display the image
      # Load and display the image
-      image = "/Users/tijanmoghnieh/Desktop/INCREASE-LIFESPAN-750x410.png"
+      image = "INCREASE-LIFESPAN-750x410.png"
       st.image(image, width= 1400, caption="Image")
              
     
@@ -55,7 +55,7 @@ with tabs[1]:
       
        
     # Load the health expenditure data
-      data = pd.read_csv("/Users/tijanmoghnieh/Desktop/DP_LIVE_09062023031048950.csv")
+      data = pd.read_csv("DP_LIVE_09062023031048950.csv")
     
     # Define the selected countries and their corresponding labels
       selected_countries = {"ESP": "Spain", "JPN": "Japan", "AUS": "Australia", "DEU": "Germany", "FRA": "France", "USA": "United States", "CHE": "Switzerland"}
@@ -91,7 +91,7 @@ with tabs[1]:
                        plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', xaxis=dict(showgrid=False), yaxis=dict(showgrid=False))
     
     # Load the life expectancy data
-      data2 = pd.read_csv("/Users/tijanmoghnieh/Desktop/DP_LIVE_09062023034900901.csv")
+      data2 = pd.read_csv("DP_LIVE_09062023034900901.csv")
     
     # Filter the data for the selected countries
       filtered_data2 = data2[data2['LOCATION'].isin(selected_countries.keys())]
@@ -139,7 +139,7 @@ with tabs[2]:
     
     
     # Load the dataset for Sales of Cigarettes
-    data1 = pd.read_csv("/Users/tijanmoghnieh/Desktop/sales-of-cigarettes-per-adult-per-day (1).csv")  
+    data1 = pd.read_csv("sales-of-cigarettes-per-adult-per-day (1).csv")  
     
     # Define the selected countries
     selected_countries = ["Spain", "Croatia", "Japan", "Austria", "Germany", "France", "United States", "Switzerland"]
@@ -175,7 +175,7 @@ with tabs[2]:
         trace.line.color = colors1[entity]
     
     # Load the dataset for Death Rate from Smoking
-    data2 = pd.read_csv("/Users/tijanmoghnieh/Desktop/death-rate-smoking.csv")  # Replace with the actual file path of your data
+    data2 = pd.read_csv("death-rate-smoking.csv")  
     
     # Filter the data for the selected countries
     filtered_data2 = data2[data2['Entity'].isin(selected_countries)]
@@ -226,7 +226,7 @@ with tabs[2]:
     
     
     # Load the dataset for Death Rate from Obesity
-    data3 = pd.read_csv("/Users/tijanmoghnieh/Desktop/death-rate-from-obesity.csv")
+    data3 = pd.read_csv("death-rate-from-obesity.csv")
     
     # Define the selected countries
     selected_countries = ["Spain", "Japan", "Austria", "Germany", "France", "United States", "Switzerland"]
@@ -275,7 +275,7 @@ with tabs[2]:
     )
     
     # Load the dataset for Opioid Overdoses
-    data_opioid = pd.read_csv("/Users/tijanmoghnieh/Desktop/death-rate-from-opioid-use.csv")
+    data_opioid = pd.read_csv("death-rate-from-opioid-use.csv")
     
     # Create the choropleth map
     fig_opioid = px.choropleth(data_opioid,
@@ -317,7 +317,7 @@ with tabs[2]:
 #homicide and road accidents
 
     # Data for Homicide
-    data_homicide = pd.read_csv("/Users/tijanmoghnieh/Desktop/homicide-rate.csv")
+    data_homicide = pd.read_csv("homicide-rate.csv")
     selected_countries = ["Spain", "Japan", "Austria", "Germany", "France", "United States", "Switzerland"]
     filtered_data_homicide = data_homicide[data_homicide['Entity'].isin(selected_countries)]
     min_year_homicide = filtered_data_homicide["Year"].min()
@@ -352,7 +352,7 @@ with tabs[2]:
     )
     
     # Road Injuries
-    data_road = pd.read_csv("/Users/tijanmoghnieh/Desktop/death-rates-road-incidents 2.csv")
+    data_road = pd.read_csv("death-rates-road-incidents 2.csv")
     filtered_data_road = data_road[data_road['Entity'].isin(selected_countries)]
     min_year_road = filtered_data_road['Year'].min()
     max_year_road = filtered_data_road['Year'].max()
