@@ -146,17 +146,25 @@ with tabs[2]:
     
     # Filter the data for the selected countries
     filtered_data1 = data1[data1['Entity'].isin(selected_countries)]
-    
+
     # Define the range of years
     min_year1 = filtered_data1["Year"].min()
     max_year1 = filtered_data1["Year"].max()
-    
+
+    # Set up Streamlit app
+    st.title("Sales of Cigarettes")
+    st.write("Select the year range:")
+
     # Get the selected year range from the slider
-    selected_years1 = st.slider("Select Year Range for Sales of Cigarettes", min_value=min_year1, max_value=max_year1, value=(min_year1, max_year1))
-    
+    selected_years1 = st.slider("Select Year Range", min_value=min_year1, max_value=max_year1, value=(min_year1, max_year1))
+
     # Filter the data based on the selected year range
     filtered_data1_years = filtered_data1[(filtered_data1["Year"] >= selected_years1[0]) & (filtered_data1["Year"] <= selected_years1[1])]
-    
+
+    # Display the filtered data
+    st.write("Filtered Data:")
+    st.dataframe(filtered_data1_years)
+
     # Plot the line graph for sales of cigarettes
     fig1 = px.line(filtered_data1_years, x="Year", y="Sales of cigarettes per adult per day (International Smoking Statistics (2017)) ", color="Entity")
     
