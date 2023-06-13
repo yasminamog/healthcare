@@ -332,7 +332,7 @@ with tabs[2]:
     filtered_data_homicide = data_homicide[data_homicide['Entity'].isin(selected_countries)]
     min_year_homicide = filtered_data_homicide["Year"].min()
     max_year_homicide = filtered_data_homicide["Year"].max()
-    selected_years_homicide = st.slider("Select Year Range for Homicide", key="homicide_slider1", min_value=min_year_homicide, max_value=max_year_homicide, value=(min_year_homicide, max_year_homicide))
+    selected_years_homicide = st.slider("Select Year Range for Homicide", key="homicide_slider1", min_value=int(min_year_homicide), max_value=int(max_year_homicide), value=(int(min_year_homicide), int(max_year_homicide)))
     filtered_data_homicide_years = filtered_data_homicide[(filtered_data_homicide["Year"] >= selected_years_homicide[0]) & (filtered_data_homicide["Year"] <= selected_years_homicide[1])]
     colors_homicide = {"United States": "red"}
     colors_homicide.update({country: "gray" for country in selected_countries if country != "United States"})
