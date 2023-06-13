@@ -156,7 +156,8 @@ with tabs[2]:
     st.write("Select the year range:")
 
     # Get the selected year range from the slider
-    selected_years1 = st.slider("Select Year Range", min_value=min_year1, max_value=max_year1, value=(min_year1, max_year1))
+    selected_years1 = st.slider("Select Year Range", min_value=int(min_year1), max_value=int(max_year1), value=(int(min_year1), int(max_year1)))
+
 
     # Filter the data based on the selected year range
     filtered_data1_years = filtered_data1[(filtered_data1["Year"] >= selected_years1[0]) & (filtered_data1["Year"] <= selected_years1[1])]
@@ -193,7 +194,8 @@ with tabs[2]:
     max_year2 = filtered_data2["Year"].max()
     
     # Get the selected year range from the slider
-    selected_years2 = st.slider("Select Year Range for Death Rate from Smoking", min_value=min_year2, max_value=max_year2, value=(min_year2, max_year2))
+   selected_years2 = st.slider("Select Year Range", min_value=int(min_year2), max_value=int(max_year2), value=(int(min_year2), int(max_year2)))
+
     
     # Filter the data based on the selected year range
     filtered_data2_years = filtered_data2[(filtered_data2["Year"] >= selected_years2[0]) & (filtered_data2["Year"] <= selected_years2[1])]
@@ -246,9 +248,8 @@ with tabs[2]:
     min_year3 = filtered_data3["Year"].min()
     max_year3 = filtered_data3["Year"].max()
     
-    # Get the selected year range from the slider
-    selected_years3 = st.slider("Select Year Range for Obesity", min_value=min_year3, max_value=max_year3, value=(min_year3, max_year3), key="obesity_slider")
-    
+    selected_years3 = st.slider("Select Year Range", min_value=int(min_year3), max_value=int(max_year3), value=(int(min_year3), int(max_year3)))
+
     # Filter the data based on the selected year range
     filtered_data3_years = filtered_data3[(filtered_data3["Year"] >= selected_years3[0]) & (filtered_data3["Year"] <= selected_years3[1])]
     
